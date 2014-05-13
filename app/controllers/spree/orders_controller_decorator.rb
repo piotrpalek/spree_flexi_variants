@@ -14,7 +14,7 @@ module Spree
       populator = Spree::OrderPopulator.new(current_order(create_order_if_necessary: true), current_currency)
       flexi_hash = {ad_hoc_option_value_ids: ad_hoc_option_value_ids, product_customizations: product_customizations}
 
-      if populator.populate(params.slice(:products, :variants, :quantity).merge(flexi_hash))
+      if populator.populate(params.slice(:products, :variant_id, :quantity).merge(flexi_hash))
         current_order.ensure_updated_shipments
         respond_with(@order) do |format|
           format.html { redirect_to cart_path }
