@@ -10,14 +10,10 @@
 <%= content_for :head do %>
     <%= javascript_tag do %>
         $(document).on('change', '#<%= cust_dom_id %>', function(e) {
-
+        $('#inside-product-cart-form').parent('form').attr('enctype',"multipart/form-data");
         // update the hidden price field for this file input
         $(this).siblings(".customization_price").val(calculate_customization_image_price(this));
-
         updatePrice();
-
-        $('#inside-product-cart-form').parent('form').attr('enctype',"multipart/form-data");
-
         }); // change()
     <% end %>
 <% end %>
