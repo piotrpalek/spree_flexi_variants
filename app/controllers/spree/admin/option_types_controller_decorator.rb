@@ -33,7 +33,8 @@ module Spree
     end
 
     def load_product_decorator
-      load_product
+      # load_product
+      @product = Product.find_by(slug: params[:product_id])
     end
 
   end
