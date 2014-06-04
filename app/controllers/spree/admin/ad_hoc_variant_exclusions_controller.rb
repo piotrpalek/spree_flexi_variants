@@ -31,7 +31,7 @@ module Spree
 
     private
     def load_product
-      @product = Product.find_by(slug: params[:product_id])
+      @product = Product.find_by(permalink: params[:product_id])
     end
 
   end

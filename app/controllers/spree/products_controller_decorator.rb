@@ -4,8 +4,7 @@ module Spree
       # copied verbatim from 0.60 ProductsController#show, except that I changed id to product_id on following line
       # TODO: is there another way?  e.g. render :action => "show", :template => "customize" ?
 
-      # @product = Product.find_by_permalink!(params[:product_id])
-      @product = Product.find_by(slug: params[:product_id])
+      @product = Product.find_by(permalink: params[:product_id])
       return unless @product
 
       @variants = Variant.active.includes([:option_values, :images]).where(:product_id => @product.id)

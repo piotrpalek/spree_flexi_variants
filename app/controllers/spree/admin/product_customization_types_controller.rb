@@ -46,8 +46,7 @@ module Spree
 
     # AJAX method for selecting an existing option type and associating with the current product
     def select
-      # @product = Product.find_by_param!(params[:product_id])
-      @product = Product.find_by(slug: params[:product_id])
+      @product = Product.find_by(permalink: params[:product_id])
 
       @product.product_customization_types << ProductCustomizationType.find(params[:id])
       @product.save
@@ -68,8 +67,7 @@ module Spree
 
     private
     def load_product
-      # @product = Product.find_by_param!(params[:product_id])
-      @product = Product.find_by(slug: params[:product_id])
+      @product = Product.find_by(permalink: params[:product_id])
     end
 
     def set_available_product_customization_types
