@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'Ad Hoc Option Values', js: true do
   describe 'remove links' do
-    extend AuthorizationHelpers::Request
+    extend Spree::TestingSupport::AuthorizationHelpers::Request
     stub_authorization!
 
     before do
