@@ -30,7 +30,7 @@ module Spree
 
     private
     def load_product
-      @product = Product.with_deleted.friendly.find(params[:product_id])#Product.find_by_param!(params[:product_id])
+      @product = Product.find_by(permalink: params[:product_id])
     end
 
     def load_available_option_values
