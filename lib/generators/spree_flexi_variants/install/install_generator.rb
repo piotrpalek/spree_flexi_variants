@@ -7,9 +7,9 @@ module SpreeFlexiVariants
         append_file "app/assets/javascripts/admin/all.js", "//= require admin/spree_flexi_variants\n"
       end
 
-      # def add_stylesheets
-      #   inject_into_file "app/assets/stylesheets/store/all.css", " *= require store/spree-flexi-variants\\n", :before => /\\*\\//, :verbose => true
-      # end
+      def add_stylesheets
+        inject_into_file 'app/assets/stylesheets/spree/admin/all.css', " *= require admin/spree_flexi_variants\n", :before => /\*\//, :verbose => true
+      end
 
       def add_migrations
         run 'bundle exec rake railties:install:migrations FROM=spree_flexi_variants'
